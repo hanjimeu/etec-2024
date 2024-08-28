@@ -1,40 +1,58 @@
+package analise_formacao_vaga;
+
 import java.util.Scanner;
 
 public class Main {
 
-    public static void main(String[] args) {
-    try(
-        Scanner scanner = new Scanner(System.in)) {
-        
-        System.out.println("Por favor digite seu nome: ");
-        var nome = scanner.next() + scanner.nextLine();
-        System.out.println("Por favor digite sua idade: ");
-        int idade = scanner.nextInt();
-        System.out.println("Digite o seu sexo: ");
-        var sexo = scanner.next() + scanner.nextLine();
-        System.out.println("Digite o endereÃ§o: ");
-        var endereco = scanner.next() + scanner.nextLine();
-        System.out.println("Digite sua altura: ");
-        double altura = scanner.nextDouble();
-        System.out.println("Digite as observaÃ§Ãµes");
-        var observacoes = scanner.next() + scanner.nextLine();
-        System.out.println("Digite seu peso: ");
-        double peso = scanner.nextDouble();
-        double imc = peso / altura * altura;
-        
-        System.out.println("Nome: " + nome);
-        System.out.println("Idade: " + idade);
-        if (sexo == "M") {
-                System.out.println("Sexo: Masculino");
-        }else{
-                System.out.println("Sexo: Feminino");
-        }
-        System.out.println("EndereÃ§o: " + endereco);
-        System.out.println("Altura: " + altura);
-        System.out.println("ObservaÃ§Ãµes: " + observacoes);
-        System.out.println("Peso: " + peso);
-        System.out.println("IMC: " + imc);
-    }
-}
-    
+	public static void main(String[] args) {
+		Scanner sc = new Scanner (System.in);
+		
+		double x;
+		
+		String nome, escolaridade, formacao;
+		
+		System.out.print("Nome do Canditado: ");
+		nome=sc.nextLine();
+		
+		System.out.print("Grau de escolaridade: ");
+		escolaridade=sc.nextLine();
+		
+		System.out.print("Formação: ");
+		formacao=sc.nextLine();
+		
+		System.out.print("Pretensão salarial: ");
+		x=sc.nextDouble();
+		
+		
+		if ((formacao.equalsIgnoreCase("análise de sistemas") || formacao.equalsIgnoreCase("analise de sistemas")  ) 
+				&& escolaridade.equalsIgnoreCase ("superior completo") && x <=6000)  {
+			System.out.println();
+			System.out.println("Inscrição recebida");
+			
+		}else if(x >6000) {
+			System.out.print("A faixa salarial da vaga está entre 5000 e 6000. Aceita continuar o processo?");
+			
+			String continuar = sc.next();
+			if (continuar.equalsIgnoreCase("sim") || continuar.equalsIgnoreCase("s")) {
+				System.out.println();
+				System.out.println("Inscriçao recebida");
+			
+				
+			}else {
+				System.out.println();
+				System.out.println("Agradecemos a disponibilidade - inscriçao interrompida");
+			}
+		}
+		
+		else {
+			System.out.println();
+			System.out.println("Não preenche os pré-requisitos para a vaga.");
+		}
+		
+		
+		
+		 
+		
+	}
+
 }
